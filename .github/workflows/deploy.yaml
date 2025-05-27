@@ -26,13 +26,17 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+
     permissions:
       pages: write
       id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/deploy-pages@v1
+      - name: deploy to github pages
         id: deployment
+        uses: actions/deploy-pages@v4
