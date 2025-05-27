@@ -78,11 +78,7 @@ for (var i = 0; i < 3000; i++) {
   result.push(cube);
 }
 
-let previous = Date.now();
 const animation = () => {
-  const now = Date.now();
-  previous = now;
-  // console.log(result);
   result = simulater(result) as any;
   result.map(r => r.animate());
   renderer.render(scene, camera);
